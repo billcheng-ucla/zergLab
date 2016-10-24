@@ -1,0 +1,12 @@
+<h2><%= @lab.name %></h2>
+<div style="float: left; width: auto;"><%= button_to "Add Scientist", '#', method: :get %> </div>
+<%= button_to "Add Zerg Specimen", new_zerg_path, method: :get %>
+
+<h3>Scientists working in this lab: </h3>
+<% @lab.scientists.each do |dr| %>
+	<div>Dr. <%= dr.first_name %> <%= dr.last_name %> </div>
+<% end %>
+
+<h3>Zerg Specimen in this lab</h3>
+<p>There are currently <%= @lab.zerg.length %> housed in this lab!</p> 
+<!-- TODO: List the Zerg Specimen Here -->

@@ -10,10 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161023015115) do
+ActiveRecord::Schema.define(version: 20161023232625) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "labs", force: :cascade do |t|
+    t.string   "name"
+    t.string   "location"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "scientists", force: :cascade do |t|
     t.string   "first_name"
@@ -22,6 +29,22 @@ ActiveRecord::Schema.define(version: 20161023015115) do
     t.string   "email"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
+    t.string   "username"
+    t.integer  "lab_id"
+    t.index ["lab_id"], name: "index_scientists_on_lab_id", using: :btree
   end
 
+  create_table "zergs", force: :cascade do |t|
+    t.string   "identification"
+    t.string   "type"
+    t.string   "strand"
+    t.string   "image"
+    t.integer  "lab_id"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+    t.index ["lab_id"], name: "index_zergs_on_lab_id", using: :btree
+  end
+
+  add_foreign_key "scientists", "labs"
+  add_foreign_key "zergs", "labs"
 end

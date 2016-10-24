@@ -1,0 +1,7 @@
+<h2>
+	Terran Dominion Labs
+</h2>
+
+<% @labs.each do |lab| %>
+	<div><h3><%= link_to lab.name, lab_path(lab) %></h3></div> <br>
+<% end %>

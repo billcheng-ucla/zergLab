@@ -1,0 +1,18 @@
+New Zerg Speciman
+
+<%= form_for @zerg do |z| %>
+  <div>
+    <%= z.text_field :identification, placeholder: "Zerg ID" %>
+  </div>
+  <div>
+    <%= z.text_field :type, placeholder: "Zerg Species" %>
+  </div>
+  <div>
+    <%= z.text_field :strand, placeholder: "Zerg Strand" %>
+  </div>
+  <div>
+    <%= z.text_field :image, placeholder: "Image" %>
+  </div>
+  
+  <%= z.submit "Submit Speciman" %>
+<% end %>

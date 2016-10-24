@@ -1,0 +1,2 @@
+module ZergHelper
+end
