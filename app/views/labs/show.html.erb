@@ -1,6 +1,6 @@
 <h2><%= @lab.name %></h2>
 <div style="float: left; width: auto;"><%= button_to "Add Scientist", '#', method: :get %> </div>
-<%= button_to "Add Zerg Specimen", new_zerg_path, method: :get %>
+<%= button_to "Add Zerg Specimen", zergs_path, method: :get %>
 
 <h3>Scientists working in this lab: </h3>
 <% @lab.scientists.each do |dr| %>
@@ -10,3 +10,8 @@
 <h3>Zerg Specimen in this lab</h3>
 <p>There are currently <%= @lab.zerg.length %> housed in this lab!</p> 
 <!-- TODO: List the Zerg Specimen Here -->
+<% ["Zergling", "Roach", "Hydralisk"].each do |type| %>
+	<% if @lab.zerg.where({specie: type}).length > 0 %>
+		<div><%= link_to type, '/labs/' + params[:id] + '/zerg/' + type %>: <%= @lab.zerg.where({specie: type}).length %> specimans</div>
+	<% end %>
+<% end %>

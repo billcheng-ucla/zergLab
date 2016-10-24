@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161023232625) do
+ActiveRecord::Schema.define(version: 20161024033943) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -36,8 +36,8 @@ ActiveRecord::Schema.define(version: 20161023232625) do
 
   create_table "zergs", force: :cascade do |t|
     t.string   "identification"
-    t.string   "type"
-    t.string   "strand"
+    t.string   "specie"
+    t.string   "strain"
     t.string   "image"
     t.integer  "lab_id"
     t.datetime "created_at",     null: false

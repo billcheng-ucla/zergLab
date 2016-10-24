@@ -1,0 +1,10 @@
+<h2> <%= params[:specie] %> </h2>
+<% @zerg.each do |z| %>
+	<div>
+		Identification: <%= z.identification %> <br>
+		Type: <%= z.specie %> <br>
+		Strain: <%= z.strain %> <br>
+	</div> 
+	<%= image_tag(z.image, size: '200x200') %>
+	
+<% end %>
